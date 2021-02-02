@@ -1,6 +1,8 @@
 <div class="">
   <% @pictures.each do |picture| %>
   <div class="">
-    <%= image_tag user.image.url %>
+    <%= image_tag(picture.image.url) if picture.image && picture.image.url %>
   </div>
+    <%= link_to "詳細",picture_path(picture.id) %>
+  <% end %>
 </div>

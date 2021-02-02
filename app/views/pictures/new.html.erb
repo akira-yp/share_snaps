@@ -1,7 +1,2 @@
-<%= form_with(model: @picture, url:local) do |f| %>
-<%= f.label :content %>
-<%= f.text_field :content %>
-<%= f.label :image %>
-<%= f.file_field :image %>
-<%= f.submit "送信" %>
-<% end %>
+<%= render 'form' %>
+<%= link_to "投稿一覧", pictures_path %>
