@@ -1,0 +1,10 @@
+<%= form_with(model: @picture, local: true) do |f| %>
+<%= f.hidden_field :content %>
+<%= f.hidden_field :image_cache %>
+<%= f.label :content %>
+<%= @picture.content %>
+<%= f.label :image %>
+<%= image_tag @picture.image.url %>
+<%= f.submit "送信" %>
+<%= f.submit "戻る", name:"back" %>
+<% end %>
