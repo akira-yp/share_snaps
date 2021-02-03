@@ -13,8 +13,9 @@
     <header>
       <% if loged_in? %>
       <%= link_to "HOME", pictures_path %>
-      <%= link_to "LOGOUT", session_path(@current_user.id) %>
+      <%= link_to "LOGOUT", session_path(@current_user.id), method: :delete %>
       <%= link_to "SHARE", new_picture_path %>
+      <%= link_to "PROFILE", user_path(@current_user.id) %>
       <% else %>
       <%= link_to "SignUp", new_user_path %>
       <%= link_to "Login", new_session_path %>

@@ -1,7 +1,11 @@
 <h2>ユーザーページ</h2>
 <div class="">
+  <%= image_tag(@user.avatar.url) if @user.avatar.url %>
+</div>
+<div class="">
   名前：<%= @user.name%>
 </div>
 <div class="">
   メールアドレス：<%= @user.email %>
 </div>
+<%= link_to "プロフィールを編集する", edit_user_path(current_user.id) %>
