@@ -22,6 +22,8 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(picture_id: params[:id])
+    @count_favorites = Favorite.where(picture_id: params[:id]).count
   end
 
   def edit

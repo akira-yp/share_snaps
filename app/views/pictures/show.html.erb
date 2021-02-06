@@ -1,10 +1,25 @@
 <div class="">
   <div class="">
+    <%= image_tag @picture.user.avatar.url %>
+  </div>
+  <div class="">
     <%= @picture.content %>
   </div>
   <div class="">
     <%= image_tag @picture.image.url %>
   </div>
+  <div class="">
     <%= link_to "edit", edit_picture_path(@picture.id) %>
     <%= link_to "destroy", picture_path(@picture.id), method: :delete %>
+  </div>
+  <div class="">
+    <% if @favorite.present? %>
+    <%= link_to "いいね！を取り消す", favorite_path(id: @favorite.id), method: :delete %>
+    <% else %>
+    <%= link_to "いいね！", favorites_path(picture_id: @picture.id), method: :post %>
+    <% end %>
+  </div>
+  <div class="">
+    <%= @count_favorites %>
+  </div>
 </div>
