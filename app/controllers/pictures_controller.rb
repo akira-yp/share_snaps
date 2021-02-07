@@ -14,6 +14,7 @@ class PicturesController < ApplicationController
       render :new
     else
       if @picture.save
+        ConfirmMailer.confirm_mail(@picture).deliver
         redirect_to pictures_path, notice:"投稿しました"
       else
         render :new
@@ -39,7 +40,7 @@ class PicturesController < ApplicationController
 
   def destroy
     if @picture.destroy
-      recirect_to pictures_path, notice:"投稿を削除しました"
+      redirect_to pictures_path, notice:"投稿を削除しました"
     else
       render :show
     end
