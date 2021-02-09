@@ -10,26 +10,30 @@
   </head>
 
   <body>
-    <header>
-      <div class="clearfix">
-        <div class="float-start">
-          SHARE SNAPS
-        </div>
-        <div class="float-end">
-          <% if loged_in? %>
-          <%= link_to "HOME", users_path %>
-          <%= link_to "EXPLORE", pictures_path %>
-          <%= link_to "LOGOUT", session_path(@current_user.id), method: :delete %>
-          <%= link_to "SHARE", new_picture_path %>
-          <%= link_to "PROFILE", user_path(@current_user.id) %>
-          <% else %>
-          <%= link_to "SignUp", new_user_path %>
-          <%= link_to "Login", new_session_path %>
-          <% end %>
+    <header class="sticky-top">
+      <div class="container-fluid">
+        <div class="row justify-content-between">
+          <div class="col-6">
+            <h2>SHARE SNAPS</h2>
+          </div>
+          <div class="col-6 d-flex justify-content-end">
+            <% if loged_in? %>
+            <%= link_to "HOME", users_path ,class:"p-2" %>
+            <%= link_to "EXPLORE", pictures_path ,class:"p-2"%>
+            <%= link_to "LOGOUT", session_path(@current_user.id), {method: :delete, class:"p-2" }%>
+            <%= link_to "SHARE", new_picture_path ,class:"p-2" %>
+            <%= link_to "PROFILE", user_path(@current_user.id) ,class:"p-2" %>
+            <% else %>
+            <%= link_to "SignUp", new_user_path ,class:"p-2" %>
+            <%= link_to "Login", new_session_path ,class:"p-2" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </header>
+    <div class="main">
     <%= notice %>
     <%= yield %>
+    </div>
   </body>
 </html>

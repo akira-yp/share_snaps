@@ -1,3 +1,7 @@
+body{
+  background-color: #fafafa;
+}
+
 .card-container {
   display:flex;
   flex-wrap: wrap;
@@ -24,4 +28,15 @@
 
 .disappear {
   display:none;
+}
+
+header{
+  z-index: 10;
+  background: #ffffff;
+  border-bottom: solid 1px #DBDBDB;
+}
+
+.main{
+  z-index: 5;
+  padding:30px;
 }

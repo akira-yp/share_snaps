@@ -1,9 +1,12 @@
 <div class="">
   <% @users.each do |user| %>
   <div class="">
-    <%= image_tag user.user_image.url %>
+    <% if user.avatar %>
+    <%= image_tag user.avatar.url %>
+    <% end %>
   </div>
   <div class="">
     <%= user.name %>
   </div>
+  <% end %>
 </div>
