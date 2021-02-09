@@ -1,0 +1,9 @@
+<div class="">
+  <% @users.each do |user| %>
+  <div class="">
+    <%= image_tag user.user_image.url %>
+  </div>
+  <div class="">
+    <%= user.name %>
+  </div>
+</div>

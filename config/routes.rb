@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "sessions#new"
   resources :users
   resources :favorites,only:[:create,:destroy]
   resources :sessions, only:[:new, :create, :destroy]

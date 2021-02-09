@@ -10,7 +10,7 @@
   </div>
   <div class="">
     <%= link_to "edit", edit_picture_path(@picture.id) %>
-    <%= link_to "destroy", picture_path(@picture.id), method: :delete %>
+    <%= link_to "destroy", picture_path(@picture.id), method: :delete, data:{confirm:"本当に削除してよろしいですか？"}  %>
   </div>
   <div class="">
     <% if @favorite.present? %>

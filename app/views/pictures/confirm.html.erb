@@ -5,6 +5,6 @@
 <%= @picture.content %>
 <%= f.label :image %>
 <%= image_tag @picture.image.url %>
-<%= f.submit "送信" %>
-<%= f.submit "戻る", name:"back" %>
+<%= f.submit "送信" , class:"btn btn-outline-dark btn-sm" %>
+<%= f.submit "戻る", name:"back" , class:"btn btn-outline-dark btn-sm" %>
 <% end %>

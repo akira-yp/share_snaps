@@ -4,6 +4,6 @@
 <%= f.text_field :email %>
 <%= f.label :password %>
 <%= f.password_field :password %>
-<%= f.submit "login" %>
+<%= f.submit "login", class:"btn btn-outline-dark btn-sm"  %>
 <% end %>
-<%= link_to "SignUp", new_user_path %>
+<%= link_to "SignUp", new_user_path, class:"btn btn-outline-dark btn-sm"  %>
