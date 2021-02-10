@@ -32,7 +32,9 @@
       </div>
     </header>
     <div class="main">
-    <%= notice %>
+      <% if notice %>
+      <div class="alert alert-light"><%= notice %></div>
+      <% end %>
     <%= yield %>
     </div>
   </body>

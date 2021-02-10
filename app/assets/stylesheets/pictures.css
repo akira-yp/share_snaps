@@ -40,3 +40,15 @@ header{
   z-index: 5;
   padding:30px;
 }
+
+.card-center{
+  margin:1.5rem auto;
+}
+
+/* .form-table {
+  max-width:500px;
+  padding:1.5rem;
+  margin:1rem auto;
+  border:solid 1px #dee2e6;
+  border-radius: 0.25rem;
+} */

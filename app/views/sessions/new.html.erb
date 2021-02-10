@@ -1,9 +1,26 @@
-<h2>ログイン</h2>
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-<%= f.label :email %>
-<%= f.text_field :email %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.submit "login", class:"btn btn-outline-dark btn-sm"  %>
-<% end %>
-<%= link_to "SignUp", new_user_path, class:"btn btn-outline-dark btn-sm"  %>
+<h2 class="text-center">Log in</h2>
+<div class="card card-center" style="max-width:500px;">
+  <div class="card-body">
+    <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+    <div class="mb-3">
+      <%= f.label :email,class:"form-label"%>
+      <%= f.text_field :email , class:"form-control form-control-sm"%>
+    </div>
+    <div class="mb-3">
+      <%= f.label :password , class:"form-label" %>
+      <%= f.password_field :password , class:"form-control form-control-sm"%>
+    </div>
+    <div class="text-center">
+      <%= f.submit "login", class:"btn btn-outline-dark btn-sm"  %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<p class="text-center">------ アカウントを作成する場合はこちらから -------<p>
+<div class="card card-center" style="max-width:500px;">
+  <div class="card-body">
+    <div class="text-center">
+      <%= link_to "SignUp", new_user_path, class:"btn btn-outline-dark btn-sm"  %>
+    </div>
+  </div>
+</div>
