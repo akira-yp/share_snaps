@@ -45,10 +45,9 @@ header{
   margin:1.5rem auto;
 }
 
-/* .form-table {
-  max-width:500px;
-  padding:1.5rem;
-  margin:1rem auto;
-  border:solid 1px #dee2e6;
-  border-radius: 0.25rem;
-} */
+.avatar-lg {
+  width:150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
