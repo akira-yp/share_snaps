@@ -1,6 +1,7 @@
 <div class="main">
+  <h4>Your Favorites Pictures</h4>
   <div class="card-container">
-    <% @pictures.each do |picture| %>
+    <% @favorite_pictures.each do |picture| %>
       <%= link_to picture_path(picture.id), class:"card-item" do %>
         <%= image_tag(picture.image.url,class:"square-image") if picture.image && picture.image.url %>
         <div class="card-img-overlay disappear">
@@ -9,4 +10,4 @@
       <% end %>
     <% end %>
   </div>
-<div>
+</div>

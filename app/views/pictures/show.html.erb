@@ -1,9 +1,9 @@
-<div class="container-md card card-center rounded-0">
+<div class="container-fluid card card-center rounded-0">
   <div class="row">
-    <div class="col bg-dark" style="text-align:center;">
+    <div class="col-8 bg-dark p-0" style="text-align:center;">
       <%= image_tag @picture.image.url%>
     </div>
-    <div class="col-md-auto border-left card p-0 border-top-0 border-right-0 border-bottom-0 rounded-0 picture-content">
+    <div class="col-4 border-left card p-0 border-top-0 border-right-0 border-bottom-0 rounded-0 picture-content">
       <div class="card-header">
         <% if @picture.user.avatar.url %>
           <%= image_tag @picture.user.avatar.url, class:"avatar-sm"%>
@@ -12,10 +12,10 @@
         <% end %>
         <%= @picture.user.name %>
       </div>
+      <div class="card-body border-bottom">
+        <p class="text-wrap"><%= @picture.content %></p>
+      </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <%= @picture.content %>
-        </li>
         <li class="list-group-item">
           <% if @favorite.present? %>
           <%= link_to favorite_path(id: @favorite.id), method: :delete, class:"like" do %>
