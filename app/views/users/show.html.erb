@@ -3,7 +3,11 @@
       <div class="row">
         <div class="col-5">
           <div class="card-center" style="width:150px; height:150px;">
-            <%= image_tag(@user.avatar.url, class:"avatar-lg") if @user.avatar.url %>
+            <% if @user.avatar.url %>
+             <%= image_tag(@user.avatar.url, class:"avatar-lg") %>
+            <% else %>
+             <img class="avatar-lg">
+            <% end %>
           </div>
         </div>
         <div class="col-7 card-body">
@@ -17,9 +21,21 @@
             <%= @user.email %>
           </div>
           <div class="">
-            <%= link_to "プロフィールを編集する", edit_user_path(current_user.id), class:"btn btn-outline-dark btn-sm"  %>
+            <% if @current_user.id == @user.id %>
+              <%= link_to "プロフィールを編集する", edit_user_path(current_user.id), class:"btn btn-outline-dark btn-sm"  %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="card-container">
+    <% @pictures.each do |picture| %>
+      <%= link_to picture_path(picture.id), class:"card-item" do %>
+        <%= image_tag(picture.image.url,class:"square-image") if picture.image && picture.image.url %>
+        <div class="card-img-overlay disappear">
+          <p>テスト</p>
+        </div>
+      <% end %>
+    <% end %>
   </div>

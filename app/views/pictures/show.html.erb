@@ -1,25 +1,48 @@
-<div class="">
-  <div class="">
-    <%= image_tag @picture.user.avatar.url %>
-  </div>
-  <div class="">
-    <%= @picture.content %>
-  </div>
-  <div class="">
-    <%= image_tag @picture.image.url %>
-  </div>
-  <div class="">
-    <%= link_to "edit", edit_picture_path(@picture.id) %>
-    <%= link_to "destroy", picture_path(@picture.id), method: :delete, data:{confirm:"本当に削除してよろしいですか？"}  %>
-  </div>
-  <div class="">
-    <% if @favorite.present? %>
-    <%= link_to "いいね！を取り消す", favorite_path(id: @favorite.id), method: :delete %>
-    <% else %>
-    <%= link_to "いいね！", favorites_path(picture_id: @picture.id), method: :post %>
-    <% end %>
-  </div>
-  <div class="">
-    <%= @count_favorites %>
+<div class="container-md card card-center rounded-0">
+  <div class="row">
+    <div class="col bg-dark" style="text-align:center;">
+      <%= image_tag @picture.image.url%>
+    </div>
+    <div class="col-md-auto border-left card p-0 border-top-0 border-right-0 border-bottom-0 rounded-0 picture-content">
+      <div class="card-header">
+        <% if @picture.user.avatar.url %>
+          <%= image_tag @picture.user.avatar.url, class:"avatar-sm"%>
+        <% else %>
+          <img class="avatar-sm">
+        <% end %>
+        <%= @picture.user.name %>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= @picture.content %>
+        </li>
+        <li class="list-group-item">
+          <% if @favorite.present? %>
+          <%= link_to favorite_path(id: @favorite.id), method: :delete, class:"like" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff0000" class="bi bi-heart-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+          </svg>
+            <% end %>
+          <% else %>
+            <%= link_to favorites_path(picture_id: @picture.id), method: :post ,class:"dis-like" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff0000" class="bi bi-heart" viewBox="0 0 16 16">
+              <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+            </svg>
+            <% end %>
+          <% end %>
+          <%= @count_favorites %>
+        </li>
+        <li class="text-center p-2">
+          <% if @current_user.id == @picture.user.id %>
+          <span>
+          <%= link_to "編集", edit_picture_path(@picture.id) ,class:"btn btn-outline-dark btn-sm" %>
+          </span>
+          <span>
+          <%= link_to("削除", picture_path(@picture.id), method: :delete, data:{confirm:"本当に削除してよろしいですか？"}, class:"btn btn-outline-dark btn-sm") %>
+          </span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

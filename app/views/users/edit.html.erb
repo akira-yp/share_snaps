@@ -1,4 +1,10 @@
-<h2 class="text-center">プロフィール編集</h2>
+<div class="card-center" style="width:150px; height:150px;">
+  <% if @user.avatar.url %>
+   <%= image_tag(@user.avatar.url, class:"avatar-lg") %>
+  <% else %>
+   <img class="avatar-lg">
+  <% end %>
+</div>
 <div class="card card-center" style="max-width:500px;">
   <div class="card-body">
     <%= form_with(model: @user, local: true) do |f| %>
@@ -20,7 +26,6 @@
     <div class="mb-3">
       <%= f.label :"プロフィール画像", class:"form-label"%>
       <div class="custom-file">
-      <!-- <%= f.label :avatar, class:"custom-file-label" %> -->
       <%= f.file_field :avatar, class:"custom-file-input" %>
       <label class="custom-file-label" data-browse="参照">ファイルを選択...</label>
       </div>

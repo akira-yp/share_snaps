@@ -34,6 +34,11 @@ h2{
   display:none;
 }
 
+.picture-content{
+  min-width: 200px;
+}
+
+
 header{
   z-index: 10;
   background: #ffffff;
@@ -53,13 +58,17 @@ header{
   width:150px;
   height: 150px;
   border-radius: 50%;
+  border:solid 1px #DBDBDB;
   object-fit: cover;
+  background-color: #fafafa;
 }
 .avatar-md {
   width:100px;
   height:100px;
   border-radius:50%;
+  border:solid 1px #DBDBDB;
   object-fit: cover;
+  background-color: #fafafa;
 }
 
 .avatar-sm {
@@ -67,6 +76,7 @@ header{
   height:30px;
   border-radius:50%;
   object-fit: cover;
+  background-color: #fafafa;
 }
 
 .svg-icon{

@@ -17,9 +17,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    current_user
+    @pictures = @user.pictures.all.order(created_at: :desc)
   end
 
   def edit
+    current_user
   end
 
   def update

@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture,only:[:show,:edit,:update,:destroy]
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.order(created_at: :desc)
   end
 
   def new
@@ -23,6 +23,7 @@ class PicturesController < ApplicationController
   end
 
   def show
+    current_user
     @favorite = current_user.favorites.find_by(picture_id: params[:id])
     @count_favorites = Favorite.where(picture_id: params[:id]).count
   end
