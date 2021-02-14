@@ -18,8 +18,12 @@
     <%= f.text_field :email, class:"form-control form-control-sm" %>
     </div>
     <div class="mb-3">
-    <%= f.label :avatar, class:"form-label"  %>
-    <%= f.file_field :avatar, class:"form-control form-control-sm" %>
+      <%= f.label :"プロフィール画像", class:"form-label"%>
+      <div class="custom-file">
+      <!-- <%= f.label :avatar, class:"custom-file-label" %> -->
+      <%= f.file_field :avatar, class:"custom-file-input" %>
+      <label class="custom-file-label" data-browse="参照">ファイルを選択...</label>
+      </div>
     </div>
     <div class="mb-3">
     <%= f.label :greeting, class:"form-label"  %>
@@ -35,3 +39,11 @@
     <% end %>
   </div>
 </div>
+
+<!-- #前
+<div class="form-group mb-3">
+  <label class="control-rabel" for="picture_image">Image</label>
+  <input type="filestyle" data-buttontext="ファイル選択" type="file" name="picture[image]",id="picture_image">
+</div>
+
+#後 -->

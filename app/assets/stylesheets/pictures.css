@@ -2,6 +2,10 @@ body{
   background-color: #fafafa;
 }
 
+h2{
+  line-height: 1;
+}
+
 .card-container {
   display:flex;
   flex-wrap: wrap;
@@ -51,3 +55,31 @@ header{
   border-radius: 50%;
   object-fit: cover;
 }
+.avatar-md {
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  object-fit: cover;
+}
+
+.avatar-sm {
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  object-fit: cover;
+}
+
+.svg-icon{
+  width:25px;
+}
+
+.custom-file {
+  overflow: hidden;
+}
+.custom-file-label {
+  white-space: nowrap;
+}
+
+/* .btn-height{
+  height:20px ;
+} */

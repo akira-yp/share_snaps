@@ -8,24 +8,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header class="sticky-top">
-      <div class="container-fluid">
+      <div class="container-fluid card-body">
         <div class="row justify-content-between">
           <div class="col-6">
-            <h2>SHARE SNAPS</h2>
+            <h2 class="font-weight-bold">SHARE SNAPS</h2>
           </div>
           <div class="col-6 d-flex justify-content-end">
             <% if loged_in? %>
-            <%= link_to "HOME", users_path ,class:"p-2" %>
-            <%= link_to "EXPLORE", pictures_path ,class:"p-2"%>
-            <%= link_to "LOGOUT", session_path(@current_user.id), {method: :delete, class:"p-2" }%>
-            <%= link_to "SHARE", new_picture_path ,class:"p-2" %>
-            <%= link_to "PROFILE", user_path(@current_user.id) ,class:"p-2" %>
+            <%= link_to image_tag('home-outline.svg',class:"svg-icon", style:"width:25px;"), users_path ,class:"p-2" %>
+            <%= link_to image_tag('compass-outline.svg',class:"svg-icon"), pictures_path ,class:"p-2"%>
+            <%= link_to image_tag('add-circle-outline.svg',class:"svg-icon"), new_picture_path ,class:"p-2" %>
+            <%= link_to image_tag(@current_user.avatar.url,class:"avatar-sm"), user_path(@current_user.id) ,class:"p-2" %>
+            <%= link_to "LOGOUT", session_path(@current_user.id), {method: :delete, class:"ml-2 p-2 btn btn-outline-dark btn-sm" } %>
             <% else %>
-            <%= link_to "SignUp", new_user_path ,class:"p-2" %>
-            <%= link_to "Login", new_session_path ,class:"p-2" %>
+            <%= link_to "SignUp", new_user_path  ,class:"p-2 btn btn-outline-dark btn-sm" %>
+            <%= link_to "Login", new_session_path ,class:"p-2 ml-2 btn btn-outline-dark btn-sm" %>
             <% end %>
           </div>
         </div>
