@@ -90,6 +90,17 @@ header{
   white-space: nowrap;
 }
 
+.confirm-pic{
+  width:450px;
+  object-fit: cover;
+}
+
+.posted-time{
+  color:#DBDBDB;
+  font-size: 0.75rem;
+  line-height: 0.75;
+  text-align: right;
+}
 /* .btn-height{
   height:20px ;
 } */

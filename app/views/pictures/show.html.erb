@@ -6,13 +6,18 @@
     <div class="col-4 border-left card p-0 border-top-0 border-right-0 border-bottom-0 rounded-0 picture-content">
       <div class="card-header">
         <% if @picture.user.avatar.url %>
+          <%= link_to user_path(@picture.user.id) do %>
           <%= image_tag @picture.user.avatar.url, class:"avatar-sm"%>
+          <% end %>
         <% else %>
+          <%= link_to user_path(@picture.user.id) do %>
           <img class="avatar-sm">
+          <% end %>
         <% end %>
         <%= @picture.user.name %>
       </div>
-      <div class="card-body border-bottom">
+      <div class="card-body border-bottom" style="max-height:300px;">
+        <p class="posted-time"><%= @picture.created_at.strftime('%Y/%m/%d %H:%M') %></p>
         <p class="text-wrap"><%= @picture.content %></p>
       </div>
       <ul class="list-group list-group-flush">
