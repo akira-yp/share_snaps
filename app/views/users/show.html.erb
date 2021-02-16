@@ -23,7 +23,7 @@
           </div>
           <div class="">
             <% if @current_user.id == @user.id %>
-              <%= link_to "プロフィールを編集する", edit_user_path(current_user.id), class:"btn btn-outline-dark btn-sm"  %>
+              <%= link_to "プロフィールを編集する", edit_user_path(@current_user.id), class:"btn btn-outline-dark btn-sm"  %>
             <% end %>
           </div>
         </div>

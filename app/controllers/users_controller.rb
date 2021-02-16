@@ -22,14 +22,19 @@ class UsersController < ApplicationController
   end
 
   def edit
-    current_user
+    redirect_to users_path if current_user.id != @user.id
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to user_path(@user.id), notice:"ユーザー情報を変更しました"
+    current_user
+    if @current_user.id == @user.id
+      if @user.update(user_params)
+        redirect_to user_path(@user.id), notice:"ユーザー情報を変更しました"
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to users_path
     end
   end
    private

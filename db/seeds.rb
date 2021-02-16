@@ -5,6 +5,8 @@
     name: name,
     email: email,
     password: "password",
-    password_confirmation: "password"
+    password_confirmation: "password",
+    greeting: "初めまして！#{name}といいます。よろしくお願いします！",
+    avatar: File.open("./db/fixtures/avatar#{n}.png")
   )
 end
