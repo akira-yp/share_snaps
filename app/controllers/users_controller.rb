@@ -26,8 +26,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user
-    if @current_user.id == @user.id
+    if current_user.id == @user.id
       if @user.update(user_params)
         redirect_to user_path(@user.id), notice:"ユーザー情報を変更しました"
       else

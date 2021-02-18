@@ -11,6 +11,7 @@ class PicturesController < ApplicationController
   def create
     @picture = current_user.pictures.new(picture_params)
     if params[:back]
+      @file_name = @picture.image.filename
       render :new
     else
       if @picture.save
@@ -29,9 +30,11 @@ class PicturesController < ApplicationController
   end
 
   def edit
+    redirect_to users_path if current_user.id != @picture.user.id
   end
 
   def update
+    redirect_to users_path if current_user.id != @picture.user.id
     if @picture.update(picture_params)
       redirect_to picture_path(@picture.id), notice:"投稿を更新しました"
     else
@@ -40,6 +43,7 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+    redirect_to users_path if current_user.id != @picture.user.id
     if @picture.destroy
       redirect_to pictures_path, notice:"投稿を削除しました"
     else
@@ -49,6 +53,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = current_user.pictures.new(picture_params)
+    @file_name = @picture.image.filename
     render :new if @picture.invalid?
   end
 

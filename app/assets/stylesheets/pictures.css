@@ -14,10 +14,10 @@ h2{
 
 .card-item {
   position:relative;
-  width: 32%;
-  padding-bottom: 32%;
-  margin:0.5%;
-  border: solid 2px #FFF;
+  width: 31%;
+  padding-bottom: 31%;
+  margin:1%;
+  border: none;
   box-sizing: border-box;
 }
 
@@ -33,13 +33,34 @@ h2{
 }
 
 .card-img-overlay {
-  margin:auto;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
   color:#ffffff;
 }
 
 .disappear {
   display:none;
 }
+
+.like-status{
+  width:50%;
+  height:50%;
+  text-align:center;
+  border:solid 1px #ffffff;
+  border-radius: 50%;
+}
+
+.like-status table{
+  height:100%;
+  width:100%;
+  border:none;
+}
+
 
 .picture-content{
   min-width: 200px;
@@ -108,6 +129,11 @@ header{
   line-height: 0.75;
   text-align: right;
 }
+
+.unclickable{
+  pointer-events: none;
+}
+
 /* .btn-height{
   height:20px ;
 } */
