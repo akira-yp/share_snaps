@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
   def index
     @favorite_pictures = current_user.favorites_pictures.all
   end
+
   def create
     current_user.favorites.create(picture_id: params[:picture_id])
     redirect_to picture_path(params[:picture_id])
