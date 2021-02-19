@@ -1,10 +1,4 @@
-$(function(){
-
-  // $('#picture_image').val().change();
-  // $('#picture_image').change(function(){
-  //   let picture_name = $('#picture_image').val();
-  //   $('.custom-file-label').html(picture_name);
-  // });
+document.addEventListener('turbolinks:load', function() {
 
   $("#inputFile01").on("change", function() {
   var files = document.getElementById("inputFile01").files;
@@ -17,9 +11,7 @@ $(function(){
     }
   }
   document.getElementById("selectedFiles").innerHTML = file_list;
-})
-
-
+  })
 
   $('.square-image').mouseover(function(){
     $(this).next('.card-img-overlay').removeClass('disappear');

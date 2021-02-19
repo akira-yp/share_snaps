@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user,only:[:show,:edit,:update,:destroy]
   def index
-    @users = User.all
+    if loged_in?
+      @users = User.all
+    else
+      redirect_to new_session_path
+    end
   end
   def new
     @user = User.new
