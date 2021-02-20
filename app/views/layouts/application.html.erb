@@ -22,7 +22,11 @@
             <%= link_to image_tag('heart-outline.svg',class:"svg-icon"),favorites_path,class:"p-2" %>
             <%= link_to image_tag('add-circle-outline.svg',class:"svg-icon"), new_picture_path ,class:"p-2" %>
             <%= link_to user_path(@current_user.id) ,class:"p-2" do %>
-              <%= image_tag(@current_user.avatar.url,class:"avatar-sm")  if @current_user.avatar.url %>
+              <% if @current_user.avatar.url %>
+                <%= image_tag @current_user.avatar.url,class:"avatar-sm" %>
+              <% else %>
+                <%= image_tag 'f_f_event_75_s128_f_event_75_1bg.png',class:"avatar-sm" %>
+              <% end %>
             <% end %>
             <%= link_to "LOGOUT", session_path(@current_user.id), {method: :delete, class:"ml-2 p-2 btn btn-outline-dark btn-sm" } %>
           <% else %>
