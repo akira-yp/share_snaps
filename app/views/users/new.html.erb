@@ -2,36 +2,36 @@
 <div class="card card-center" style="max-width:500px;">
   <div class="card-body">
     <%= form_with(model: @user, local: true, class:"needs-validation",novalidate:"novalidate") do |f| %>
-    <% if @user.errors.any? %>
-    <div id="error_explanation" class="alert alert-warning">
-      <% @user.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
+      <% if @user.errors.any? %>
+        <div id="error_explanation" class="alert alert-warning">
+          <% @user.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+          <% end %>
+        </div>
       <% end %>
-    </div>
+      <div class="mb-3">
+        <%= f.label :name , class:"form-label",for:"validationCustom01" %>
+        <%= f.text_field :name, class:"form-control form-control-sm",id:"validationCustom01",required:"required" %>
+        <div class="invalid-feedback">入力してください</div>
+      </div>
+      <div class="mb3">
+        <%= f.label :email, class:"form-label",for:"validationCustom02" %>
+        <%= f.text_field :email, class:"form-control form-control-sm",id:"validationCustom02",required:"required" %>
+        <div class="invalid-feedback">入力してください</div>
+      </div>
+      <div class="mb-3">
+        <%= f.label :password, class:"form-label",for:"validationCustom03" %>
+        <%= f.password_field :password, class:"form-control form-control-sm",id:"validationCustom03",required:"required" %>
+        <div class="invalid-feedback">入力してください</div>
+      </div>
+      <div class="mb-3">
+        <%= f.label :password_confirmation, class:"form-label",for:"validationCustom04" %>
+        <%= f.password_field :password_confirmation, class:"form-control form-control-sm",id:"validationCustom04",required:"required" %>
+        <div class="invalid-feedback">入力してください</div>
+      </div>
+      <div class="text-center">
+        <%= f.submit "Create account", class:"btn btn-outline-dark btn-sm" %>
+      </div>
     <% end %>
-    <div class="mb-3">
-      <%= f.label :name , class:"form-label",for:"validationCustom01" %>
-      <%= f.text_field :name, class:"form-control form-control-sm",id:"validationCustom01",required:"required" %>
-      <div class="invalid-feedback">入力してください</div>
-    </div>
-    <div class="mb3">
-      <%= f.label :email, class:"form-label",for:"validationCustom02" %>
-      <%= f.text_field :email, class:"form-control form-control-sm",id:"validationCustom02",required:"required" %>
-      <div class="invalid-feedback">入力してください</div>
-    </div>
-    <div class="mb-3">
-      <%= f.label :password, class:"form-label",for:"validationCustom03" %>
-      <%= f.password_field :password, class:"form-control form-control-sm",id:"validationCustom03",required:"required" %>
-      <div class="invalid-feedback">入力してください</div>
-    </div>
-    <div class="mb-3">
-      <%= f.label :password_confirmation, class:"form-label",for:"validationCustom04" %>
-      <%= f.password_field :password_confirmation, class:"form-control form-control-sm",id:"validationCustom04",required:"required" %>
-      <div class="invalid-feedback">入力してください</div>
-    </div>
-    <div class="text-center">
-      <%= f.submit "Create account", class:"btn btn-outline-dark btn-sm" %>
-    </div>
   </div>
 </div>
-<% end %>

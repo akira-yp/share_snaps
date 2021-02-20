@@ -3,11 +3,11 @@
   <div class="card-body">
     <%= form_with(model: @picture, local: true, url: choose_new_or_edit ,class:"needs-validation") do |f| %>
       <% if @picture.errors.any? %>
-      <div id="error_explanation" class="alert alert-warning">
-        <% @picture.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
-        <% end %>
-      </div>
+        <div id="error_explanation" class="alert alert-warning">
+          <% @picture.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+          <% end %>
+        </div>
       <% end %>
       <div class="mb-3">
         <%= f.label :content, class:"form-label" %>
@@ -18,10 +18,10 @@
         <div class="custom-file">
           <%= f.file_field :image, class:"custom-file-input",id:"inputFile01",required:"required" %>
           <label class="custom-file-label" id="selectedFiles" for="inputFile01" data-browse="参照">
-             <% if @file_name %>
-             <%= @file_name %>
-             <% else %>
-            ファイルを選択...
+            <% if @file_name %>
+              <%= @file_name %>
+            <% else %>
+              ファイルを選択...
             <% end %>
           </label>
         </div>

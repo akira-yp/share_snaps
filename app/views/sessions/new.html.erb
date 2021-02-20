@@ -2,19 +2,19 @@
 <div class="card card-center" style="max-width:500px;">
   <div class="card-body">
     <%= form_with(scope: :session, url: sessions_path, local: true, class:"needs-validation") do |f| %>
-    <div class="mb-3">
-      <%= f.label :email,class:"form-label"%>
-      <%= f.text_field :email , class:"form-control form-control-sm",required:"required"%>
-    </div>
-    <div class="invalid-feedback">入力してください</div>
-    <div class="mb-3">
-      <%= f.label :password , class:"form-label" %>
-      <%= f.password_field :password , class:"form-control form-control-sm",required:"required"%>
+      <div class="mb-3">
+        <%= f.label :email,class:"form-label"%>
+        <%= f.text_field :email , class:"form-control form-control-sm",required:"required"%>
+      </div>
       <div class="invalid-feedback">入力してください</div>
-    </div>
-    <div class="text-center">
-      <%= f.submit "login", class:"btn btn-outline-dark btn-sm"  %>
-    </div>
+      <div class="mb-3">
+        <%= f.label :password , class:"form-label" %>
+        <%= f.password_field :password , class:"form-control form-control-sm",required:"required"%>
+        <div class="invalid-feedback">入力してください</div>
+      </div>
+      <div class="text-center">
+        <%= f.submit "login", class:"btn btn-outline-dark btn-sm"  %>
+      </div>
     <% end %>
   </div>
 </div>
