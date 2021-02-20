@@ -15,7 +15,8 @@ class PicturesController < ApplicationController
       render :new
     else
       if @picture.save
-        ConfirmMailer.confirm_mail(@picture).deliver
+        #本番環境でメール投稿を実装する際のコード
+        # ConfirmMailer.confirm_mail(@picture).deliver
         redirect_to pictures_path, notice:"投稿しました"
       else
         render :new
