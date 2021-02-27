@@ -8,4 +8,10 @@ class User < ApplicationRecord
   has_many :pictures, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorites_pictures, through: :favorites, source: :picture
+
+  after_initialize :set_defalt_avatar
+
+  def set_defalt_avatar
+    self.avatar = File.open("./app/assets/images/f_f_event_75_s128_f_event_75_1bg.png") if avatar.blank?
+  end
 end
