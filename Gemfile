@@ -15,10 +15,17 @@ gem 'bcrypt','3.1.11'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'dotenv-rails'
+gem 'unicorn'
+gem 'mini_racer', platforms: :ruby
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'dotenv-rails'
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
