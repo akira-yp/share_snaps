@@ -5,9 +5,14 @@ class User < ApplicationRecord
   before_validation { email.downcase! }
   has_secure_password
   validates :password_digest, presence:true, length:{minimum:6}
+
   has_many :pictures, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorites_pictures, through: :favorites, source: :picture
+  has_many :active_relationships, foreign_key: 'follower_id', class_name:'Relationship', dependent: :destroy
+  has_many :passive_relationships, foreign_key: 'followed_id', class_name:'Relationship', dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
 
   after_initialize :set_defalt_avatar
 
