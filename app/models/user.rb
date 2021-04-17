@@ -19,4 +19,16 @@ class User < ApplicationRecord
   def set_defalt_avatar
     self.avatar = File.open("./app/assets/images/f_f_event_75_s128_f_event_75_1bg.png") if avatar.blank?
   end
+
+  def follow!(other_user)
+    active_relationships.create!(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following?(other_user)
+    active_relationships.find_by(followed_id: other_user.id)
+  end
 end
